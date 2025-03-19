@@ -1,0 +1,61 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Logs
+*.log
+logs/
+
+# Local configuration files
+.env
+config.ini
+credentials.json
+*_credentials.json
+*_config.json
+api_keys.json
+
+# Database files
+*.db
+*.sqlite3
+
+# Backtest results and data
+backtest_results/
+historical_data/
+*.csv
+*.pkl
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Telegram bot token files
+telegram_config.json
+bot_token.txt
+
+# Cached data
+.cache/

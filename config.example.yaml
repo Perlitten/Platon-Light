@@ -1,0 +1,132 @@
+# Platon Light Configuration File
+
+# General settings
+general:
+  mode: "live"  # Options: live, dry-run
+  exchange: "binance"
+  base_currency: "USDT"
+  quote_currencies: ["BTC", "ETH", "SOL", "BNB"]
+  market_type: "futures"  # Options: spot, futures
+  leverage: 5  # Range: 1-20
+  execution_timeout_ms: 300  # Maximum execution latency in milliseconds
+
+# Trading parameters
+trading:
+  timeframes:
+    - "15s"
+    - "1m"
+    - "5m"
+  position_sizing:
+    method: "kelly"  # Options: fixed, percentage, kelly
+    kelly_fraction: 0.5  # Conservative adjustment to Kelly (0.1-1.0)
+    max_position_size_percentage: 10.0  # Maximum position size as percentage of total capital
+  
+  # Entry conditions
+  entry:
+    min_volume_percentile: 70  # Minimum volume percentile (0-100)
+    min_order_book_imbalance: 1.5  # Minimum ratio of buy/sell orders
+    rsi:
+      timeframe: "1m"
+      period: 14
+      oversold: 30
+      overbought: 70
+    macd:
+      fast_period: 12
+      slow_period: 26
+      signal_period: 9
+    stochastic:
+      k_period: 14
+      d_period: 3
+      slowing: 3
+      
+  # Exit conditions
+  exit:
+    profit_target:
+      type: "dynamic"  # Options: fixed, dynamic
+      fixed_percentage: 0.5
+      volatility_multiplier: 1.5
+    stop_loss:
+      type: "trailing"  # Options: fixed, trailing
+      initial_percentage: 0.5
+      trailing_delta: 0.1
+    max_trade_duration_seconds: 300  # Maximum time to hold a position
+
+# Risk management
+risk:
+  max_risk_per_trade_percentage: 1.0
+  daily_drawdown_limits:
+    warning: 3.0
+    soft_stop: 5.0
+    hard_stop: 10.0
+  max_open_positions: 3
+  correlation_limit: 0.7  # Maximum correlation allowed between open positions
+  volatility_adjustment: true
+  liquidation_safety_margin_percentage: 20.0
+  abnormal_market_detection: true
+
+# Telegram settings
+telegram:
+  enabled: true
+  notification_levels:
+    trade_entry: true
+    trade_exit: true
+    position_update: true
+    performance_summary: true
+    risk_alerts: true
+  performance_report_schedule:
+    hourly: false
+    daily: true
+    weekly: true
+  command_access:
+    admin_users: ["user_id_1", "user_id_2"]
+    require_2fa: true
+
+# Visualization
+visualization:
+  console:
+    enabled: true
+    mode: "standard"  # Options: minimal, standard, advanced
+    update_interval_ms: 1000
+    color_theme: "dark"  # Options: dark, light, high_contrast
+    charts:
+      price: true
+      indicators: true
+      order_book: true
+      positions: true
+    language: "en"  # Options: en, es, fr, de, ru, zh
+
+# Logging and diagnostics
+logging:
+  level: "info"  # Options: debug, info, warning, error, critical
+  components:
+    trading_engine: "info"
+    risk_management: "info"
+    market_data: "info"
+    order_execution: "debug"
+    telegram: "info"
+  performance_benchmarking: true
+  transaction_logging: true
+  strategy_decision_logging: true
+  anomaly_detection: true
+  export:
+    formats: ["csv", "json"]
+    auto_export_schedule: "daily"  # Options: hourly, daily, weekly, none
+
+# Advanced settings
+advanced:
+  market_data:
+    order_book_depth: 20
+    websocket_buffer_size: 1000
+    reconnect_attempts: 5
+    reconnect_delay_ms: 1000
+  execution:
+    retry_attempts: 3
+    retry_delay_ms: 100
+    order_types: ["LIMIT", "MARKET", "STOP_MARKET"]
+  custom_indicators:
+    enabled: false
+    path: "custom_indicators/"
+  distributed:
+    enabled: false
+    nodes: 1
+    coordinator_url: "http://localhost:8000"

@@ -1,0 +1,74 @@
+# Git
+.git
+.github
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Logs
+*.log
+logs/
+
+# Local configuration files
+.env
+config.ini
+credentials.json
+*_credentials.json
+*_config.json
+api_keys.json
+
+# Database files
+*.db
+*.sqlite3
+
+# Backtest results and data
+backtest_results/
+historical_data/
+*.csv
+*.pkl
+
+# Documentation
+docs/build/
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore

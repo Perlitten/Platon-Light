@@ -1,0 +1,18 @@
+# This file defines the code owners for the repository
+# Each line is a file pattern followed by one or more owners
+
+# These owners will be the default owners for everything in the repo
+* @Perlitten
+
+# Order is important; the last matching pattern takes the most precedence
+
+# Core components
+/platon_light/ @Perlitten
+/scripts/ @Perlitten
+
+# Documentation
+/docs/ @Perlitten
+*.md @Perlitten
+
+# Tests
+/tests/ @Perlitten

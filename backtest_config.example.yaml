@@ -1,0 +1,174 @@
+# Platon Light Backtesting Configuration File
+
+# General settings
+general:
+  mode: "backtest"  # Fixed to "backtest" for backtesting
+  exchange: "binance"
+  base_currency: "USDT"
+  quote_currencies: ["BTC", "ETH", "SOL", "BNB"]
+  market_type: "futures"  # Options: spot, futures
+
+# Trading parameters (same as main config)
+trading:
+  symbols: ["BTCUSDT", "ETHUSDT", "SOLUSDT"]  # Trading pairs to backtest
+  timeframes:
+    - "1m"
+    - "5m"
+    - "15m"
+  position_sizing:
+    method: "kelly"  # Options: fixed, percentage, kelly
+    kelly_fraction: 0.5  # Conservative adjustment to Kelly (0.1-1.0)
+    max_position_size_percentage: 10.0  # Maximum position size as percentage of total capital
+  
+  # Entry and exit conditions (same as main config)
+  entry:
+    min_volume_percentile: 70
+    min_order_book_imbalance: 1.5
+    rsi:
+      timeframe: "1m"
+      period: 14
+      oversold: 30
+      overbought: 70
+    macd:
+      fast_period: 12
+      slow_period: 26
+      signal_period: 9
+    stochastic:
+      k_period: 14
+      d_period: 3
+      slowing: 3
+      
+  exit:
+    profit_target:
+      type: "dynamic"
+      fixed_percentage: 0.5
+      volatility_multiplier: 1.5
+    stop_loss:
+      type: "trailing"
+      initial_percentage: 0.5
+      trailing_delta: 0.1
+    max_trade_duration_seconds: 300
+
+# Risk management (same as main config)
+risk:
+  max_risk_per_trade_percentage: 1.0
+  max_open_positions: 3
+  correlation_limit: 0.7
+  volatility_adjustment: true
+  liquidation_safety_margin_percentage: 20.0
+
+# Strategy configuration
+strategy:
+  name: "scalping_rsi"  # Name of the strategy to backtest
+  # Strategy-specific parameters
+  rsi_period: 14
+  rsi_oversold: 30
+  rsi_overbought: 70
+  ema_short_period: 9
+  ema_long_period: 21
+  atr_period: 14
+  atr_multiplier: 2.0
+  volume_threshold: 1.5
+
+# Backtesting specific configuration
+backtesting:
+  # Data parameters
+  data_source: "binance"  # Options: binance, csv, database
+  csv_data_path: "data/historical/"
+  use_cache: true
+  cache_dir: "data/cache/"
+  
+  # Simulation parameters
+  initial_capital: 10000.0
+  commission: 0.04  # Commission rate in percentage (0.04%)
+  slippage: 0.01  # Slippage rate in percentage (0.01%)
+  margin_mode: "isolated"  # Options: isolated, cross
+  leverage: 5  # Range: 1-20
+  
+  # Output parameters
+  output_dir: "backtest_results/"
+  save_trades: true
+  save_equity_curve: true
+  
+  # Execution parameters
+  execution_latency_ms: 100  # Simulated execution latency
+  order_book_depth: 10
+  
+  # Reporting parameters
+  generate_report: true
+  report_format: "html"  # Options: html, pdf, json
+  
+  # Date range (can be overridden by CLI)
+  start_date: "2023-01-01"
+  end_date: "2023-12-31"
+
+# Optimization configuration
+optimization:
+  enabled: false  # Set to true to enable optimization
+  method: "grid_search"  # Options: grid_search, genetic, walk_forward
+  fitness_metric: "sharpe_ratio"  # Metric to optimize for
+  max_workers: 4  # Number of parallel workers for optimization
+  
+  # Grid search parameters
+  param_grid:
+    rsi_period: [7, 14, 21]
+    rsi_oversold: [20, 25, 30]
+    rsi_overbought: [70, 75, 80]
+    ema_short_period: [5, 9, 13]
+    ema_long_period: [21, 34, 55]
+  
+  # Genetic algorithm parameters
+  genetic:
+    population_size: 50
+    generations: 10
+    mutation_rate: 0.1
+    crossover_rate: 0.7
+    param_ranges:
+      rsi_period: [5, 30, 1]  # [min, max, step]
+      rsi_oversold: [10, 40, 5]
+      rsi_overbought: [60, 90, 5]
+      ema_short_period: [3, 20, 1]
+      ema_long_period: [15, 100, 5]
+  
+  # Walk-forward parameters
+  walk_forward:
+    window_size: 30  # Size of in-sample window in days
+    step_size: 7  # Size of out-of-sample window in days
+
+# Visualization configuration
+visualization:
+  enabled: true
+  save_plots: true
+  plot_format: "png"  # Options: png, svg, pdf
+  dpi: 100
+  figsize: [12, 8]
+  
+  # Plots to generate
+  plots:
+    equity_curve: true
+    drawdown: true
+    trade_distribution: true
+    monthly_returns: true
+    performance_metrics: true
+    trade_analysis: true
+  
+  # Interactive plots (for Jupyter notebooks)
+  interactive: false
+  
+  # Custom styling
+  style: "darkgrid"  # Options: darkgrid, whitegrid, dark, white, ticks
+  palette: "viridis"  # Color palette
+
+# Logging configuration
+logging:
+  level: "info"  # Options: debug, info, warning, error, critical
+  log_file: "logs/backtest.log"
+  console_output: true
+  
+  # Components to log
+  components:
+    data_loader: "info"
+    backtest_engine: "info"
+    performance_analyzer: "info"
+    optimization: "info"
+    visualization: "info"

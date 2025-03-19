@@ -1,0 +1,847 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Comprehensive Backtest Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                line-height: 1.6;
+            }
+            h1, h2, h3 {
+                color: #333;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .metrics-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .metric-box {
+                background-color: #f2f2f2;
+                border-radius: 5px;
+                padding: 15px;
+                margin-bottom: 15px;
+                width: 30%;
+                box-sizing: border-box;
+            }
+            .metric-value {
+                font-size: 24px;
+                font-weight: bold;
+                color: #333;
+            }
+            .positive {
+                color: green;
+            }
+            .negative {
+                color: red;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                margin: 20px 0;
+            }
+            .backtest-container {
+                margin-bottom: 40px;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Comprehensive Backtest Report</h1>
+        <p>Generated on: 2025-03-19 16:53:23</p>
+        
+        <h2>Summary</h2>
+        <table>
+            <tr>
+                <th>Symbol</th>
+                <th>Timeframe</th>
+                <th>Total Return</th>
+                <th>Annualized Return</th>
+                <th>Sharpe Ratio</th>
+                <th>Max Drawdown</th>
+                <th>Win Rate</th>
+                <th>Profit Factor</th>
+            </tr>
+    
+            <tr>
+                <td>BTCUSDT</td>
+                <td>1h</td>
+                <td class="positive">2934170.11%</td>
+                <td class="positive">3018276.71%</td>
+                <td>5.5230</td>
+                <td>-6.49%</td>
+                <td>71.43%</td>
+                <td>100.8460</td>
+            </tr>
+        
+            <tr>
+                <td>BTCUSDT</td>
+                <td>4h</td>
+                <td class="positive">1821.89%</td>
+                <td class="positive">1837.56%</td>
+                <td>3.5796</td>
+                <td>-10.22%</td>
+                <td>54.55%</td>
+                <td>18.3357</td>
+            </tr>
+        
+            <tr>
+                <td>BTCUSDT</td>
+                <td>1d</td>
+                <td class="positive">79.02%</td>
+                <td class="positive">79.30%</td>
+                <td>1.8225</td>
+                <td>-15.29%</td>
+                <td>50.00%</td>
+                <td>6.0286</td>
+            </tr>
+        
+            <tr>
+                <td>ETHUSDT</td>
+                <td>1h</td>
+                <td class="positive">2934170.11%</td>
+                <td class="positive">3018276.71%</td>
+                <td>5.5230</td>
+                <td>-6.49%</td>
+                <td>71.43%</td>
+                <td>100.8460</td>
+            </tr>
+        
+            <tr>
+                <td>ETHUSDT</td>
+                <td>4h</td>
+                <td class="positive">1821.89%</td>
+                <td class="positive">1837.56%</td>
+                <td>3.5796</td>
+                <td>-10.22%</td>
+                <td>54.55%</td>
+                <td>18.3357</td>
+            </tr>
+        
+            <tr>
+                <td>ETHUSDT</td>
+                <td>1d</td>
+                <td class="positive">79.02%</td>
+                <td class="positive">79.30%</td>
+                <td>1.8225</td>
+                <td>-15.29%</td>
+                <td>50.00%</td>
+                <td>6.0286</td>
+            </tr>
+        
+        </table>
+        
+        <h2>Detailed Results</h2>
+    
+        <div class="backtest-container">
+            <h3>BTCUSDT 1h</h3>
+            
+            <div class="metrics-container">
+        
+                <div class="metric-box">
+                    <h4>Total Return</h4>
+                    <div class="metric-value positive">2934170.11%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Annualized Return</h4>
+                    <div class="metric-value positive">3018276.71%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Max Drawdown</h4>
+                    <div class="metric-value ">-6.49%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Sharpe Ratio</h4>
+                    <div class="metric-value positive">552.30%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Win Rate</h4>
+                    <div class="metric-value positive">71.43%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Profit Factor</h4>
+                    <div class="metric-value positive">10084.60%</div>
+                </div>
+            
+            </div>
+            
+            <h4>Performance Metrics</h4>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+        
+                <tr>
+                    <td>Total Signals</td>
+                    <td>70</td>
+                </tr>
+            
+                <tr>
+                    <td>Buy Signals</td>
+                    <td>35</td>
+                </tr>
+            
+                <tr>
+                    <td>Sell Signals</td>
+                    <td>35</td>
+                </tr>
+            
+                <tr>
+                    <td>Signal Ratio</td>
+                    <td>1.0000</td>
+                </tr>
+            
+                <tr>
+                    <td>Total Return</td>
+                    <td>2934170.11%</td>
+                </tr>
+            
+                <tr>
+                    <td>Annualized Return</td>
+                    <td>3018276.71%</td>
+                </tr>
+            
+                <tr>
+                    <td>Max Drawdown</td>
+                    <td>-6.49%</td>
+                </tr>
+            
+                <tr>
+                    <td>Sharpe Ratio</td>
+                    <td>5.5230</td>
+                </tr>
+            
+                <tr>
+                    <td>Win Rate</td>
+                    <td>71.43%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Win</td>
+                    <td>59.57%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Loss</td>
+                    <td>-1.48%</td>
+                </tr>
+            
+                <tr>
+                    <td>Profit Factor</td>
+                    <td>100.8460</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Trade Duration</td>
+                    <td>142.7143</td>
+                </tr>
+            
+            </table>
+            
+            <h4>Visualizations</h4>
+        
+        </div>
+        
+        <div class="backtest-container">
+            <h3>BTCUSDT 4h</h3>
+            
+            <div class="metrics-container">
+        
+                <div class="metric-box">
+                    <h4>Total Return</h4>
+                    <div class="metric-value positive">1821.89%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Annualized Return</h4>
+                    <div class="metric-value positive">1837.56%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Max Drawdown</h4>
+                    <div class="metric-value ">-10.22%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Sharpe Ratio</h4>
+                    <div class="metric-value positive">357.96%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Win Rate</h4>
+                    <div class="metric-value positive">54.55%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Profit Factor</h4>
+                    <div class="metric-value positive">1833.57%</div>
+                </div>
+            
+            </div>
+            
+            <h4>Performance Metrics</h4>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+        
+                <tr>
+                    <td>Total Signals</td>
+                    <td>23</td>
+                </tr>
+            
+                <tr>
+                    <td>Buy Signals</td>
+                    <td>12</td>
+                </tr>
+            
+                <tr>
+                    <td>Sell Signals</td>
+                    <td>11</td>
+                </tr>
+            
+                <tr>
+                    <td>Signal Ratio</td>
+                    <td>1.0909</td>
+                </tr>
+            
+                <tr>
+                    <td>Total Return</td>
+                    <td>1821.89%</td>
+                </tr>
+            
+                <tr>
+                    <td>Annualized Return</td>
+                    <td>1837.56%</td>
+                </tr>
+            
+                <tr>
+                    <td>Max Drawdown</td>
+                    <td>-10.22%</td>
+                </tr>
+            
+                <tr>
+                    <td>Sharpe Ratio</td>
+                    <td>3.5796</td>
+                </tr>
+            
+                <tr>
+                    <td>Win Rate</td>
+                    <td>54.55%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Win</td>
+                    <td>56.40%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Loss</td>
+                    <td>-3.69%</td>
+                </tr>
+            
+                <tr>
+                    <td>Profit Factor</td>
+                    <td>18.3357</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Trade Duration</td>
+                    <td>343.2727</td>
+                </tr>
+            
+            </table>
+            
+            <h4>Visualizations</h4>
+        
+        </div>
+        
+        <div class="backtest-container">
+            <h3>BTCUSDT 1d</h3>
+            
+            <div class="metrics-container">
+        
+                <div class="metric-box">
+                    <h4>Total Return</h4>
+                    <div class="metric-value positive">79.02%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Annualized Return</h4>
+                    <div class="metric-value positive">79.30%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Max Drawdown</h4>
+                    <div class="metric-value ">-15.29%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Sharpe Ratio</h4>
+                    <div class="metric-value positive">182.25%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Win Rate</h4>
+                    <div class="metric-value positive">50.00%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Profit Factor</h4>
+                    <div class="metric-value positive">602.86%</div>
+                </div>
+            
+            </div>
+            
+            <h4>Performance Metrics</h4>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+        
+                <tr>
+                    <td>Total Signals</td>
+                    <td>9</td>
+                </tr>
+            
+                <tr>
+                    <td>Buy Signals</td>
+                    <td>5</td>
+                </tr>
+            
+                <tr>
+                    <td>Sell Signals</td>
+                    <td>4</td>
+                </tr>
+            
+                <tr>
+                    <td>Signal Ratio</td>
+                    <td>1.2500</td>
+                </tr>
+            
+                <tr>
+                    <td>Total Return</td>
+                    <td>79.02%</td>
+                </tr>
+            
+                <tr>
+                    <td>Annualized Return</td>
+                    <td>79.30%</td>
+                </tr>
+            
+                <tr>
+                    <td>Max Drawdown</td>
+                    <td>-15.29%</td>
+                </tr>
+            
+                <tr>
+                    <td>Sharpe Ratio</td>
+                    <td>1.8225</td>
+                </tr>
+            
+                <tr>
+                    <td>Win Rate</td>
+                    <td>50.00%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Win</td>
+                    <td>36.68%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Loss</td>
+                    <td>-6.08%</td>
+                </tr>
+            
+                <tr>
+                    <td>Profit Factor</td>
+                    <td>6.0286</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Trade Duration</td>
+                    <td>1338.0000</td>
+                </tr>
+            
+            </table>
+            
+            <h4>Visualizations</h4>
+        
+        </div>
+        
+        <div class="backtest-container">
+            <h3>ETHUSDT 1h</h3>
+            
+            <div class="metrics-container">
+        
+                <div class="metric-box">
+                    <h4>Total Return</h4>
+                    <div class="metric-value positive">2934170.11%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Annualized Return</h4>
+                    <div class="metric-value positive">3018276.71%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Max Drawdown</h4>
+                    <div class="metric-value ">-6.49%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Sharpe Ratio</h4>
+                    <div class="metric-value positive">552.30%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Win Rate</h4>
+                    <div class="metric-value positive">71.43%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Profit Factor</h4>
+                    <div class="metric-value positive">10084.60%</div>
+                </div>
+            
+            </div>
+            
+            <h4>Performance Metrics</h4>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+        
+                <tr>
+                    <td>Total Signals</td>
+                    <td>70</td>
+                </tr>
+            
+                <tr>
+                    <td>Buy Signals</td>
+                    <td>35</td>
+                </tr>
+            
+                <tr>
+                    <td>Sell Signals</td>
+                    <td>35</td>
+                </tr>
+            
+                <tr>
+                    <td>Signal Ratio</td>
+                    <td>1.0000</td>
+                </tr>
+            
+                <tr>
+                    <td>Total Return</td>
+                    <td>2934170.11%</td>
+                </tr>
+            
+                <tr>
+                    <td>Annualized Return</td>
+                    <td>3018276.71%</td>
+                </tr>
+            
+                <tr>
+                    <td>Max Drawdown</td>
+                    <td>-6.49%</td>
+                </tr>
+            
+                <tr>
+                    <td>Sharpe Ratio</td>
+                    <td>5.5230</td>
+                </tr>
+            
+                <tr>
+                    <td>Win Rate</td>
+                    <td>71.43%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Win</td>
+                    <td>59.57%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Loss</td>
+                    <td>-1.48%</td>
+                </tr>
+            
+                <tr>
+                    <td>Profit Factor</td>
+                    <td>100.8460</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Trade Duration</td>
+                    <td>142.7143</td>
+                </tr>
+            
+            </table>
+            
+            <h4>Visualizations</h4>
+        
+        </div>
+        
+        <div class="backtest-container">
+            <h3>ETHUSDT 4h</h3>
+            
+            <div class="metrics-container">
+        
+                <div class="metric-box">
+                    <h4>Total Return</h4>
+                    <div class="metric-value positive">1821.89%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Annualized Return</h4>
+                    <div class="metric-value positive">1837.56%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Max Drawdown</h4>
+                    <div class="metric-value ">-10.22%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Sharpe Ratio</h4>
+                    <div class="metric-value positive">357.96%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Win Rate</h4>
+                    <div class="metric-value positive">54.55%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Profit Factor</h4>
+                    <div class="metric-value positive">1833.57%</div>
+                </div>
+            
+            </div>
+            
+            <h4>Performance Metrics</h4>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+        
+                <tr>
+                    <td>Total Signals</td>
+                    <td>23</td>
+                </tr>
+            
+                <tr>
+                    <td>Buy Signals</td>
+                    <td>12</td>
+                </tr>
+            
+                <tr>
+                    <td>Sell Signals</td>
+                    <td>11</td>
+                </tr>
+            
+                <tr>
+                    <td>Signal Ratio</td>
+                    <td>1.0909</td>
+                </tr>
+            
+                <tr>
+                    <td>Total Return</td>
+                    <td>1821.89%</td>
+                </tr>
+            
+                <tr>
+                    <td>Annualized Return</td>
+                    <td>1837.56%</td>
+                </tr>
+            
+                <tr>
+                    <td>Max Drawdown</td>
+                    <td>-10.22%</td>
+                </tr>
+            
+                <tr>
+                    <td>Sharpe Ratio</td>
+                    <td>3.5796</td>
+                </tr>
+            
+                <tr>
+                    <td>Win Rate</td>
+                    <td>54.55%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Win</td>
+                    <td>56.40%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Loss</td>
+                    <td>-3.69%</td>
+                </tr>
+            
+                <tr>
+                    <td>Profit Factor</td>
+                    <td>18.3357</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Trade Duration</td>
+                    <td>343.2727</td>
+                </tr>
+            
+            </table>
+            
+            <h4>Visualizations</h4>
+        
+        </div>
+        
+        <div class="backtest-container">
+            <h3>ETHUSDT 1d</h3>
+            
+            <div class="metrics-container">
+        
+                <div class="metric-box">
+                    <h4>Total Return</h4>
+                    <div class="metric-value positive">79.02%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Annualized Return</h4>
+                    <div class="metric-value positive">79.30%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Max Drawdown</h4>
+                    <div class="metric-value ">-15.29%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Sharpe Ratio</h4>
+                    <div class="metric-value positive">182.25%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Win Rate</h4>
+                    <div class="metric-value positive">50.00%</div>
+                </div>
+            
+                <div class="metric-box">
+                    <h4>Profit Factor</h4>
+                    <div class="metric-value positive">602.86%</div>
+                </div>
+            
+            </div>
+            
+            <h4>Performance Metrics</h4>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+        
+                <tr>
+                    <td>Total Signals</td>
+                    <td>9</td>
+                </tr>
+            
+                <tr>
+                    <td>Buy Signals</td>
+                    <td>5</td>
+                </tr>
+            
+                <tr>
+                    <td>Sell Signals</td>
+                    <td>4</td>
+                </tr>
+            
+                <tr>
+                    <td>Signal Ratio</td>
+                    <td>1.2500</td>
+                </tr>
+            
+                <tr>
+                    <td>Total Return</td>
+                    <td>79.02%</td>
+                </tr>
+            
+                <tr>
+                    <td>Annualized Return</td>
+                    <td>79.30%</td>
+                </tr>
+            
+                <tr>
+                    <td>Max Drawdown</td>
+                    <td>-15.29%</td>
+                </tr>
+            
+                <tr>
+                    <td>Sharpe Ratio</td>
+                    <td>1.8225</td>
+                </tr>
+            
+                <tr>
+                    <td>Win Rate</td>
+                    <td>50.00%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Win</td>
+                    <td>36.68%</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Loss</td>
+                    <td>-6.08%</td>
+                </tr>
+            
+                <tr>
+                    <td>Profit Factor</td>
+                    <td>6.0286</td>
+                </tr>
+            
+                <tr>
+                    <td>Avg Trade Duration</td>
+                    <td>1338.0000</td>
+                </tr>
+            
+            </table>
+            
+            <h4>Visualizations</h4>
+        
+        </div>
+        
+    </body>
+    </html>
+    

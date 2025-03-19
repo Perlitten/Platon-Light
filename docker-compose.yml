@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  platon-light:
+    build: .
+    container_name: platon-light
+    ports:
+      - "8050:8050"
+    volumes:
+      - ./.env:/app/.env
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+    networks:
+      - platon-network
+
+  # Optional InfluxDB for storing trading data
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=adminpassword
+      - DOCKER_INFLUXDB_INIT_ORG=platon
+      - DOCKER_INFLUXDB_INIT_BUCKET=platon_light
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-token
+    restart: unless-stopped
+    networks:
+      - platon-network
+
+networks:
+  platon-network:
+    driver: bridge
+
+volumes:
+  influxdb-data:
