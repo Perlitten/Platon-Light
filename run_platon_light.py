@@ -59,8 +59,26 @@ def print_trading_mode_menu():
     print()
     return input("Select trading mode (1-3): ")
 
-def run_dashboard(mode='dry_run', port=8050, debug=False):
-    """Launch the trading dashboard."""
+def print_dashboard_type_menu():
+    """Print the dashboard type selection menu."""
+    print("\nDASHBOARD TYPE")
+    print("-" * 60)
+    print("[1] Simple Dashboard")
+    print("[2] Enhanced Dashboard with Advanced Visualization")
+    print("[3] Back to Main Menu")
+    print()
+    return input("Select dashboard type (1-3): ")
+
+def run_dashboard(mode='dry_run', dashboard_type='simple', port=8050, debug=False, initial_balance=10000):
+    """Launch the trading dashboard.
+    
+    Args:
+        mode (str): Trading mode ('dry_run' or 'real')
+        dashboard_type (str): Dashboard type ('simple' or 'enhanced')
+        port (int): Port to run the dashboard on
+        debug (bool): Whether to run in debug mode
+        initial_balance (float): Initial balance for dry run mode
+    """
     try:
         print(f"\nStarting Platon Light Trading Dashboard in {mode.upper()} mode...")
         print(f"Dashboard will be available at http://127.0.0.1:{port}")
@@ -69,23 +87,36 @@ def run_dashboard(mode='dry_run', port=8050, debug=False):
         # Give user time to read the message
         time.sleep(2)
         
+        # Determine which dashboard script to use
+        if dashboard_type == 'enhanced':
+            dashboard_script = "enhanced_trading_dashboard.py"
+        else:
+            dashboard_script = "simple_trading_dashboard.py"
+        
         # Check if dashboard script exists in new location
-        dashboard_path = os.path.join("scripts", "dashboard", "simple_trading_dashboard.py")
+        dashboard_path = os.path.join("scripts", "dashboard", dashboard_script)
         if not os.path.exists(dashboard_path):
             # Try the root directory as fallback
-            dashboard_path = "simple_trading_dashboard.py"
+            dashboard_path = dashboard_script
             if not os.path.exists(dashboard_path):
-                raise FileNotFoundError("Dashboard script not found")
+                raise FileNotFoundError(f"Dashboard script {dashboard_script} not found")
+        
+        # Run the dashboard script with appropriate parameters
+        command = f"python {dashboard_path}"
+        if mode:
+            command += f" --mode {mode}"
+        if initial_balance:
+            command += f" --initial_balance {initial_balance}"
         
         # Run the dashboard script
-        os.system(f"python {dashboard_path}")
+        os.system(command)
         
     except FileNotFoundError as e:
         logger.error(f"Dashboard script not found: {e}")
         print("\nERROR: Dashboard script not found.")
         print("Make sure the file exists at either:")
-        print("  - scripts/dashboard/simple_trading_dashboard.py")
-        print("  - simple_trading_dashboard.py")
+        print(f"  - scripts/dashboard/{dashboard_script}")
+        print(f"  - {dashboard_script}")
         input("\nPress Enter to continue...")
     except Exception as e:
         logger.error(f"Error launching dashboard: {e}")
@@ -182,14 +213,41 @@ def main():
         if choice == '1':
             # Launch Trading Dashboard
             mode_choice = print_trading_mode_menu()
-            if mode_choice == '1':
-                run_dashboard(mode='dry_run')
-            elif mode_choice == '2':
-                print("\nCAUTION: You are about to use REAL trading mode!")
-                print("This will use real funds from your exchange account.")
-                confirm = input("Are you sure you want to continue? (yes/no): ")
-                if confirm.lower() in ['yes', 'y']:
-                    run_dashboard(mode='real')
+            
+            if mode_choice == '1' or mode_choice == '2':
+                # Get dashboard type
+                dashboard_choice = print_dashboard_type_menu()
+                
+                # Get initial balance for dry run mode
+                initial_balance = 10000
+                if mode_choice == '1':  # Dry run mode
+                    try:
+                        balance_input = input("\nEnter initial balance (USDT) [default: 10000]: ")
+                        if balance_input.strip():
+                            initial_balance = float(balance_input)
+                    except ValueError:
+                        print("Invalid input. Using default balance of 10000 USDT.")
+                        initial_balance = 10000
+                
+                # Launch appropriate dashboard
+                if dashboard_choice == '1':
+                    if mode_choice == '1':
+                        run_dashboard(mode='dry_run', dashboard_type='simple', initial_balance=initial_balance)
+                    elif mode_choice == '2':
+                        print("\nCAUTION: You are about to use REAL trading mode!")
+                        print("This will use real funds from your exchange account.")
+                        confirm = input("Are you sure you want to continue? (yes/no): ")
+                        if confirm.lower() in ['yes', 'y']:
+                            run_dashboard(mode='real', dashboard_type='simple')
+                elif dashboard_choice == '2':
+                    if mode_choice == '1':
+                        run_dashboard(mode='dry_run', dashboard_type='enhanced', initial_balance=initial_balance)
+                    elif mode_choice == '2':
+                        print("\nCAUTION: You are about to use REAL trading mode!")
+                        print("This will use real funds from your exchange account.")
+                        confirm = input("Are you sure you want to continue? (yes/no): ")
+                        if confirm.lower() in ['yes', 'y']:
+                            run_dashboard(mode='real', dashboard_type='enhanced')
             # If mode_choice is '3' or anything else, just go back to main menu
             
         elif choice == '2':
