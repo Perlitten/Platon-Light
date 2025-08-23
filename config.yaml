@@ -2,8 +2,8 @@
 
 # General settings
 general:
-  mode: "live"  # Options: live, dry-run
-  exchange: "binance"  # Options: binance, bybit
+  mode: "dry-run"  # Options: live, dry-run
+  exchange: "binance"
   base_currency: "USDT"
   quote_currencies: ["BTC", "ETH", "SOL", "BNB"]
   market_type: "futures"  # Options: spot, futures
@@ -20,7 +20,7 @@ trading:
     method: "kelly"  # Options: fixed, percentage, kelly
     kelly_fraction: 0.5  # Conservative adjustment to Kelly (0.1-1.0)
     max_position_size_percentage: 10.0  # Maximum position size as percentage of total capital
-  
+
   # Entry conditions
   entry:
     min_volume_percentile: 70  # Minimum volume percentile (0-100)
@@ -38,7 +38,7 @@ trading:
       k_period: 14
       d_period: 3
       slowing: 3
-      
+
   # Exit conditions
   exit:
     profit_target:
@@ -66,7 +66,7 @@ risk:
 
 # Telegram settings
 telegram:
-  enabled: true
+  enabled: false
   notification_levels:
     trade_entry: true
     trade_exit: true

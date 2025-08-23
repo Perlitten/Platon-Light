@@ -6,7 +6,7 @@ import logging
 import time
 from typing import Dict, List, Optional
 
-from platon_light.core.exchange import ExchangeClient
+from platon_light.core.exchange_factory import get_exchange_client
 from platon_light.core.strategy import ScalpingStrategy
 from platon_light.core.risk_manager import RiskManager
 from platon_light.core.position_manager import PositionManager
@@ -32,7 +32,7 @@ class TradingBot:
         self.start_time = None
         
         # Initialize components
-        self.exchange = ExchangeClient(config)
+        self.exchange = get_exchange_client(config)
         self.market_data = MarketDataManager(config, self.exchange)
         self.strategy = ScalpingStrategy(config, self.market_data)
         self.risk_manager = RiskManager(config)
