@@ -10,8 +10,8 @@ from pathlib import Path
 
 # Configuration
 PORT = 8080
-REPORT_DIR = Path(__file__).parent / 'results'
-REPORT_FILES = list(REPORT_DIR.glob('*_report_*.html'))
+REPORT_DIR = Path(__file__).parent / "results"
+REPORT_FILES = list(REPORT_DIR.glob("*_report_*.html"))
 
 if not REPORT_FILES:
     print("No report files found!")
@@ -26,11 +26,13 @@ print(f"Serving report: {REPORT_FILE}")
 # Change to the directory containing the report
 os.chdir(REPORT_FILE.parent)
 
+
 class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # Redirect all requests to the report file
         self.path = REPORT_FILE.name
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
+
 
 # Create an object of the above class
 handler_object = MyHttpRequestHandler

@@ -9,4 +9,4 @@ from .ichimoku_cloud import IchimokuCloud
 from .vwap import VWAP
 from .heikin_ashi import HeikinAshi
 
-__all__ = ['IchimokuCloud', 'VWAP', 'HeikinAshi']
+__all__ = ["IchimokuCloud", "VWAP", "HeikinAshi"]

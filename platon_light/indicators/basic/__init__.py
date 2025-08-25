@@ -11,4 +11,4 @@ from .rsi import RSI
 from .bollinger_bands import BollingerBands
 from .macd import MACD
 
-__all__ = ['SMA', 'EMA', 'RSI', 'BollingerBands', 'MACD']
+__all__ = ["SMA", "EMA", "RSI", "BollingerBands", "MACD"]
