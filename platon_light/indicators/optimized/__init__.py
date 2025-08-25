@@ -9,8 +9,8 @@ for improved performance.
 try:
     from .numba_accelerated import NumbaAcceleratedRSI
     from .cached_indicator import CachedIndicator
-    
-    __all__ = ['NumbaAcceleratedRSI', 'CachedIndicator']
+
+    __all__ = ["NumbaAcceleratedRSI", "CachedIndicator"]
 except ImportError:
     # Numba might not be installed
     __all__ = []

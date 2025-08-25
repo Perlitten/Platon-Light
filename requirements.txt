@@ -1,7 +1,7 @@
 python-binance==1.0.17
 pandas
 numpy
-matplotlib==3.7.2
+matplotlib
 ccxt==3.1.54
 ta==0.10.2
 python-telegram-bot==20.4
@@ -21,3 +21,8 @@ dash
 dash-bootstrap-components
 plotly==5.18.0
 flask
+PyYAML
+memory-profiler
+plotext
+tabulate
+colorama

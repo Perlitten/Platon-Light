@@ -1,8 +1,10 @@
 """
 Abstract Base Class for an exchange client.
 """
+
 from abc import ABC, abstractmethod
 from typing import Dict, List, Optional, Union
+
 
 class BaseExchangeClient(ABC):
     """
@@ -53,9 +55,16 @@ class BaseExchangeClient(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    async def create_order(self, symbol: str, side: str, order_type: str,
-                           quantity: float, price: float = None,
-                           stop_price: float = None, reduce_only: bool = False) -> Optional[Dict]:
+    async def create_order(
+        self,
+        symbol: str,
+        side: str,
+        order_type: str,
+        quantity: float,
+        price: float = None,
+        stop_price: float = None,
+        reduce_only: bool = False,
+    ) -> Optional[Dict]:
         """
         Create a new order.
         """
@@ -97,7 +106,9 @@ class BaseExchangeClient(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    async def get_klines(self, symbol: str, interval: str, limit: int = 500) -> List[List]:
+    async def get_klines(
+        self, symbol: str, interval: str, limit: int = 500
+    ) -> List[List]:
         """
         Get klines/candlestick data for a symbol.
         """
